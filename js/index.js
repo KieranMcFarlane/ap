@@ -11,21 +11,22 @@ document.addEventListener('DOMContentLoaded', function(){
   navCart.addEventListener('click', event => {
     cart.classList.toggle('is-hidden')
   })
-// hides when you click 'X' top right
-  cartHeaderClose.addEventListener('click', event => {
-    cart.classList.toggle('is-hidden')
-  })
+  // hides when you click 'X' top right
+    cartHeaderClose.addEventListener('click', event => {
+      cart.classList.toggle('is-hidden')
+    })
 
   // get the input value
   
     inputRadios.forEach(inputRadio => {
       inputRadio.addEventListener('click', event => {
-        // get value of radio button and match that with the image (hopefully I can use an empty div and that can load in the image from the src that will be both display: none because I'm not using react)
+      
+        // Still thinking of best way to get the correct info to pass to
         let radioValue = event.currentTarget.value;
         let itemName = event.currentTarget.getAttribute('data-name')
         let itemPrice = event.currentTarget.getAttribute('data-price')
         let itemSize = event.currentTarget.getAttribute('data-size')
-        // const ctaButton = document.querySelector('.button--cta .button__label')
+
         const item = {}
         item.value = radioValue
         item.name = itemName
@@ -33,21 +34,13 @@ document.addEventListener('DOMContentLoaded', function(){
         item.price = itemPrice
         console.log(item)
 
-        ctaButton.getAttribute('data-item') = item
-
-        // this is a product checker 
-        // if(radioValue == 'ASK61'){
-          
-        // } else{
-          
-        // }
-
         const imageContainers = document.querySelectorAll('.product-image__container');
 
+
+        // NOT IDEAL but will do for now until I figure best way out for opacity 1|0
         imageContainers.forEach(imageContainer => {
           // get the data sku for image container
           let skuCode = imageContainer.getAttribute('data-sku');
-          // if it matches then add class to child node
           if ( radioValue === skuCode ){
             imageContainer.classList.add('product-image--visible')
             imageContainer.classList.remove('product-image--invisible')
@@ -56,10 +49,8 @@ document.addEventListener('DOMContentLoaded', function(){
             imageContainer.classList.add('product-image--invisible')
           }
         }) 
+
       })
-    });
-
-
-
+    })
 
 });
