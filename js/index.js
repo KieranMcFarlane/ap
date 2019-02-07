@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function(){
   
   // add item to cart
 
-  console.log(ctaButton);
   // shows when you click cart circle top right
   navCart.addEventListener('click', event => {
     cart.classList.toggle('is-hidden')
@@ -26,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function(){
         let itemName = event.currentTarget.getAttribute('data-name')
         let itemPrice = event.currentTarget.getAttribute('data-price')
         let itemSize = event.currentTarget.getAttribute('data-size')
-        const ctaButton = document.querySelector('.button--cta .button__label')
+        // const ctaButton = document.querySelector('.button--cta .button__label')
         const item = {}
         item.value = radioValue
         item.name = itemName
